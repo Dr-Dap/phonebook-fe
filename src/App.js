@@ -31,6 +31,9 @@ const App = () => {
         setNewName('')
         setNewNumber('')
       })
+      .catch(error => {
+        console.log(error.response.data.error)
+      })
     }  else if (persons.some((person) => person.name.includes(newName)) === true) {
       if (window.confirm(`Update ${newName}'s number to ${newNumber}?`)) {
         const person = persons.find(person => person.name.includes(newName));
